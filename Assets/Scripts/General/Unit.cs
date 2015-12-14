@@ -7,15 +7,22 @@ public class Unit : MonoBehaviour {
 
 	public UnitStats Stats;
 	public Text HealthIndicator;
+	public Text TurnChargeIndicator;
+	public float TurnCharge;
+
+	void Awake() {
+		Stats = new UnitStats ();
+	}
 
 	// Use this for initialization
 	void Start () {
-		Stats = new UnitStats ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		HealthIndicator.text = Stats.HpCurrent.ToString ();
+		TurnChargeIndicator.text = Math.Floor(TurnCharge).ToString ();
 	}
 
 	public void Attack(Unit target) {
